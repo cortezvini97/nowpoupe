@@ -24,7 +24,8 @@ public class DBHelper extends SQLiteOpenHelper {
                 + " cliente VARCHAR(60) NOT NULL,"
                 + " valor DECIMAL(10,2) NOT NULL,"
                 + " taxa DECIMAL(10,2) NOT NULL, "
-                + " data VARCHAR(20) NOT NULL, "
+                + " data_entrada VARCHAR(20) NOT NULL, "
+                + " data_saida VACHAR(20) NOT NULL, "
                 + " total_a_pagar DECIMAL(10,2) NOT NULL ); ";
 
         try {

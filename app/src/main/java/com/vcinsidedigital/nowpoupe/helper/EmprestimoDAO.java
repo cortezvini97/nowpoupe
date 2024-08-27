@@ -30,7 +30,8 @@ public class EmprestimoDAO implements IEmprestimoDAO{
         cv.put("valor", emprestimo.getValor());
         cv.put("taxa", emprestimo.getTaxa());
         cv.put("total_a_pagar", emprestimo.getTotalAPagar());
-        cv.put("data", emprestimo.getData());
+        cv.put("data_entrada", emprestimo.getDataEntrada());
+        cv.put("data_saida", emprestimo.getDataSaida());
 
         try{
             escreve.insert(DBHelper.TABLE_NAME, null, cv);
@@ -50,7 +51,8 @@ public class EmprestimoDAO implements IEmprestimoDAO{
         cv.put("valor", emprestimo.getValor());
         cv.put("taxa", emprestimo.getTaxa());
         cv.put("total_a_pagar", emprestimo.getTotalAPagar());
-        cv.put("data", emprestimo.getData());
+        cv.put("data_entrada", emprestimo.getDataEntrada());
+        cv.put("data_saida", emprestimo.getDataSaida());
         try{
             escreve.update(DBHelper.TABLE_NAME, cv, "id=?", args);
             return true;
@@ -84,7 +86,8 @@ public class EmprestimoDAO implements IEmprestimoDAO{
             @SuppressLint("Range") double valor = c.getDouble(c.getColumnIndex("valor"));
             @SuppressLint("Range") double taxa = c.getDouble(c.getColumnIndex("taxa"));
             @SuppressLint("Range") double totalAPagar = c.getDouble(c.getColumnIndex("total_a_pagar"));
-            @SuppressLint("Range") String data = c.getString(c.getColumnIndex("data"));
+            @SuppressLint("Range") String data_entrada = c.getString(c.getColumnIndex("data_entrada"));
+            @SuppressLint("Range") String data_saida = c.getString(c.getColumnIndex("data_saida"));
 
             Emprestimo emprestimo = new Emprestimo();
             emprestimo.setId(id);
@@ -92,7 +95,8 @@ public class EmprestimoDAO implements IEmprestimoDAO{
             emprestimo.setValor(valor);
             emprestimo.setTaxa(taxa);
             emprestimo.setTotalAPagar(totalAPagar);
-            emprestimo.setData(data);
+            emprestimo.setDataEntrada(data_entrada);
+            emprestimo.setDataSaida(data_saida);
 
             listaEmprestimos.add(emprestimo);
         }

@@ -8,7 +8,9 @@ public class Emprestimo implements Serializable
     private String cliente;
     private double valor;
     private double taxa;
-    private String data;
+    private String dataEntrada;
+
+    private String dataSaida;
     private double totalAPagar;
 
 
@@ -44,12 +46,20 @@ public class Emprestimo implements Serializable
         this.taxa = taxa;
     }
 
-    public String getData() {
-        return data;
+    public String getDataEntrada() {
+        return dataEntrada;
     }
 
-    public void setData(String data) {
-        this.data = data;
+    public void setDataEntrada(String data) {
+        this.dataEntrada = data;
+    }
+
+    public String getDataSaida() {
+        return dataSaida;
+    }
+
+    public void setDataSaida(String dataSaida) {
+        this.dataSaida = dataSaida;
     }
 
     public double getTotalAPagar() {

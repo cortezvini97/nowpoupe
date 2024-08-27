@@ -3,7 +3,6 @@ package com.vcinsidedigital.nowpoupe.adapter;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +21,6 @@ import com.vcinsidedigital.nowpoupe.helper.EmprestimoDAO;
 import com.vcinsidedigital.nowpoupe.model.Emprestimo;
 
 import java.text.NumberFormat;
-import java.util.Currency;
 import java.util.List;
 import java.util.Locale;
 
@@ -51,7 +49,8 @@ public class EmprestimoAdapter extends RecyclerView.Adapter<EmprestimoAdapter.My
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Emprestimo emprestimo = this.listaEmprestimo.get(position);
         holder.cliente.setText(emprestimo.getCliente());
-        holder.data.setText("Data: " + emprestimo.getData());
+        holder.data_entrada.setText("Data Entrada: " + emprestimo.getDataEntrada());
+        holder.data_saida.setText("data Saída: " + emprestimo.getDataSaida());
         holder.valor.setText("Valor: "+ NumberFormat.getCurrencyInstance(new Locale("pt", "BR")).format(emprestimo.getValor()).replace("R$", "R$ "));
         holder.taxa.setText("Taxa: "+ NumberFormat.getCurrencyInstance(new Locale("pt", "BR")).format(emprestimo.getTaxa()).replace("R$", "R$ "));
         holder.valor_total.setText("Total a Pagar: "+ NumberFormat.getCurrencyInstance(new Locale("pt", "BR")).format(emprestimo.getTotalAPagar()).replace("R$", "R$ "));
@@ -66,12 +65,13 @@ public class EmprestimoAdapter extends RecyclerView.Adapter<EmprestimoAdapter.My
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView cliente, data, valor, taxa, valor_total;
+        TextView cliente, data_entrada, data_saida, valor, taxa, valor_total;
 
         public MyViewHolder(View itemView) {
             super(itemView);
             cliente = itemView.findViewById(R.id.clienteId);
-            data = itemView.findViewById(R.id.dataTextId);
+            data_entrada = itemView.findViewById(R.id.dataTextId);
+            data_saida = itemView.findViewById(R.id.textDataSaidaId);
             valor = itemView.findViewById(R.id.valorId);
             taxa = itemView.findViewById(R.id.taxaId);
             valor_total = itemView.findViewById(R.id.valorTotalId);
